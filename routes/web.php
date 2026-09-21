@@ -16,3 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/attendance', function () {
+    return '勤怠登録画面';
+})->middleware('auth');
