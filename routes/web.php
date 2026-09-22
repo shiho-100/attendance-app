@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AttendanceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +18,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/attendance', function () {
-    return '勤怠登録画面';
-})->middleware('auth');
+Route::get('/attendance', [AttendanceController::class, 'index'])
+    ->middleware('auth');
+
+Route::post('/attendance', [AttendanceController::class, 'store'])
+    ->middleware('auth');
